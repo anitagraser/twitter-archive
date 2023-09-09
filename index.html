@@ -36,7 +36,13 @@
 					<script src="/twitter-archive/pagefind/pagefind-ui.js" onload="
 					new PagefindUI({ 
 						element: '#search', 
-						showImages: false
+						showImages: false,
+						processResult: function (result) {
+							if (result.url.indexOf('/twitter-archive') < 0) {
+								result.url = '/twitter-archive' + result.url;
+							}
+							return result;
+						}
 					});"></script>
 				</div>
 			</template>
